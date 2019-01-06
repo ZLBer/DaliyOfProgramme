@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by libin on 2017/9/24.
  */
-public class Find_All_Numbers_Disappeared_in_an_Array {
+public class leet442 {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         List<Integer> result=new ArrayList<Integer>();
         for(int i=1;i<=nums.length;i++){

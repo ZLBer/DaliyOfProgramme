@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/2.
  */
-public class Hamming_Distance {
+public class leet461 {
     public int hammingDistance(int x, int y) {
         int count=0;
         for(int i=0;i<99;i++) {

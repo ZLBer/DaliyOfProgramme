@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/2.
  */
-public class Judge_Route_Circle {
+public class leet657 {
     public boolean judgeCircle(String moves) {
         int u=0,d=0,l=0,r=0;
         for(int i=0;i<moves.length();i++){

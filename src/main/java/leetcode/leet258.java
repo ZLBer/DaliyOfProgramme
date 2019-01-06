@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/24.
  */
-public class Add_Digits {
+public class leet258 {
 
         public int addDigits(int num) {
            while(num>9){

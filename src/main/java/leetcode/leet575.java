@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/6.
  */
-public class Distribute_Candies {
+public class leet575 {
     public int distributeCandies(int[] candies) {
         sort(candies,0,candies.length-1);
         for(int i=0;i<candies.length-1;i++){

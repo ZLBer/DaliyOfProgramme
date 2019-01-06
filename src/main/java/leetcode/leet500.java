@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by libin on 2017/9/2.
  */
-public class Keyboard_Row {
+public class leet500 {
     public String[] findWords(String[] words) {
         List<String> list=new ArrayList<String>();
         String Up = "qwertyuiop";

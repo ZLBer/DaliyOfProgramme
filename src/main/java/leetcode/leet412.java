@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by libin on 2017/9/9.
  */
-public class Fizz_Buzz {
+public class leet412 {
     public List<String> fizzBuzz(int n) {
         List<String> result=new LinkedList<String>();
          for(int i=1;i<=n;i++){

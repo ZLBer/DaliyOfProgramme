@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/2.
  */
-public class Array_Partition_I {
+public class leet561 {
     public int arrayPairSum(int[] nums) {
         sort(nums,0,nums.length-1);
         int count=0;

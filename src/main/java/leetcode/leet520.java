@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/17.
  */
-public class Detect_Capital {
+public class leet520 {
     public boolean detectCapitalUse(String word) {
     int up=0;
     int low=0;

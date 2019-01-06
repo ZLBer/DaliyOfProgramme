@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/10/8.
  */
-public class Construct_the_Rectangle {
+public class leet492 {
     public int[] constructRectangle(int area) {
         int gap=9999;
         int []result=new int[2];
