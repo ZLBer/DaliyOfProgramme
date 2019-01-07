@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/10/8.
  */
-public class Range_Addition_II {
+public class leet598 {
     public int maxCount(int m, int n, int[][] ops) {
         int a=m;
         int b=n;

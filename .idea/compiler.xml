@@ -9,8 +9,8 @@
         <module name="DaliyOfProgramme" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="DaliyOfProgramme" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="DaliyOfProgramme" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

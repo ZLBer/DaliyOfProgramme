@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by libin on 2017/9/9.
  */
-public class Reshape_the_Matrix {
+public class leet566 {
     public int[][] matrixReshape(int[][] nums, int r, int c) {
         if(nums.length*nums[1].length!=r*c)
             return nums;

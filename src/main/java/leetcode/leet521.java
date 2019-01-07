@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/16.
  */
-public class Longest_Uncommon_Subsequence_I {
+public class leet521 {
 //    public int findLUSlength(String a, String b) {
 //        int result = 0;
 //        int count = 0;

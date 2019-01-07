@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/6.
  */
-public class Reverse_Words_in_a_String_III {
+public class leet557 {
     public String reverseWords(String s) {
         StringBuffer reverse=new StringBuffer();
     String []m=s.split(" ");

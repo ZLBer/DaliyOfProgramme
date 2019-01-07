@@ -3,7 +3,7 @@ package leetcode;
 /**
  * Created by libin on 2017/9/17.
  */
-public class Max_Consecutive_Ones {
+public class leet485 {
     public int findMaxConsecutiveOnes(int[] nums) {
         int begin=0;
         int length=0;

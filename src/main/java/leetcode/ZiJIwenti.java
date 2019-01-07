@@ -1,5 +1,8 @@
 package leetcode;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
  * Created by libin on 2017/9/1.
  */
@@ -14,5 +17,6 @@ public class ZiJIwenti {
             }
         }
         System.out.println("¿Õ¼¯");
+
     }
 }

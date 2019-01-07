@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by libin on 2017/9/16.
  */
-public class Next_Greater_Element_I {
+public class leet496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         List <Integer>result=new ArrayList<Integer>();
                for(int i=0;i<nums1.length;i++){
