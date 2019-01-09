@@ -6,7 +6,7 @@ import java.util.Queue;
 /**
  * Created by libin on 2019/1/9.
  */
-public class leet226 {
+public class leet226$ {
     //！！典型错误！！  这样操作ledt已经改变了哦
 //    public TreeNode invertTree(TreeNode root) {
 //        if(root==null) return null;
@@ -42,4 +42,5 @@ public class leet226 {
         }
         return root;
     }
+
 }

@@ -1,3 +1,5 @@
+```
+
 package java_code.util;/*
  * Copyright (c) 1997, 2010, Oracle and/or its affiliates. All rights reserved.
  * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
@@ -1226,3 +1228,6 @@ h&（length-1）保证获取的index一定在数组范围内，举个例子，�
     int   capacity()     { return table.length; }
     float loadFactor()   { return loadFactor;   }
 }
+
+
+```

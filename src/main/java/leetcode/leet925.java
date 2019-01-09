@@ -44,6 +44,9 @@ public class leet925 {
 //    }
 
     public static void main(String[] args) {
-        System.out.println(isLongPressedName("leelee","lleeelee"));
+   //     System.out.println(isLongPressedName("leelee","lleeelee"));
+        int a,b;
+        a=b=2-1;
+        System.out.println(a+ "    "+b);
     }
 }
