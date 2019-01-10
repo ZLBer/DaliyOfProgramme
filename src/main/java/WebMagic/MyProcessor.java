@@ -32,6 +32,7 @@ public class MyProcessor implements PageProcessor {
        //jsoop获取页面
         doc = Jsoup.parse(page.getHtml().toString());
  //css选择器
+
         Elements content = doc.select("#content > div > div.article > div > div > table:nth-child(2)").nextAll("table");
            for(Element e:content){
             //   System.out.println(e.select(" tbody > tr > td:nth-child(2) > div > a"));
