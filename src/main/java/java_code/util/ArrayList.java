@@ -796,7 +796,7 @@ public class ArrayList<E> extends AbstractList<E>
         Objects.requireNonNull(c);
         return batchRemove(c, true);
     }
-   
+
     /*
     *  TODO: 看不太懂？
     * @date : 2019/1/7 16:12
