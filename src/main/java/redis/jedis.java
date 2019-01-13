@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class jedis {
     public static void main(String[] args) {
-        Jedis jedis = new Jedis ("39.107.99.207",6379);
+        Jedis jedis = new Jedis ("39.107.99.207",7005);
         //string 类型
         System.out.println(jedis.set("20156789","main"));
         System.out.println(jedis.get("20156789"));

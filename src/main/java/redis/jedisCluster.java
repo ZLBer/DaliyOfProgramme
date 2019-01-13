@@ -16,11 +16,7 @@ public class jedisCluster {
         // 添加集群的服务节点Set集合
         Set<HostAndPort> hostAndPortsSet = new HashSet<HostAndPort>();
         // 添加节点
-        hostAndPortsSet.add(new HostAndPort("39.107.99.207", 6379));
-        hostAndPortsSet.add(new HostAndPort("39.107.99.207", 6380));
-        hostAndPortsSet.add(new HostAndPort("39.107.99.207", 6381));
-
-        // Jedis连接池配置
+        hostAndPortsSet.add(new HostAndPort("39.107.99.207", 7005));
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         // 最大空闲连接数, 默认8个
         jedisPoolConfig.setMaxIdle(100);
@@ -34,8 +30,9 @@ public class jedisCluster {
         jedisPoolConfig.setTestOnBorrow(true);
         jedis = new JedisCluster(hostAndPortsSet, jedisPoolConfig);
     }
-
     public static void main(String[] args) {
-      System.out.println(jedis.set("20156789","main"));
+        for(int i=0;i<100;i++) {
+            System.out.println(jedis.set(i+"", i+""));
+        }
     }
 }
