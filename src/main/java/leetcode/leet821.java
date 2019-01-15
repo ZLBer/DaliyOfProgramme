@@ -41,7 +41,7 @@ public class leet821 {
         return result;
     }*/
 //我觉得跟我的差不多 只不过更加精简
-    public int[] shortestToChar(String S, char C) {
+   static public int[] shortestToChar(String S, char C) {
         int n = S.length();
         int[] res = new int[n];
         int pos = -n;
