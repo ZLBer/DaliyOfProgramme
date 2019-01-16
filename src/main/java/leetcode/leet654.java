@@ -8,6 +8,7 @@ public class leet654 {
 
            return construct(nums,0,nums.length-1);
     }
+    //构造二叉树
     TreeNode construct(int []nums,int i,int j){
         int [] max=helper(nums,i,j);
         TreeNode node=new TreeNode(0);
@@ -25,8 +26,8 @@ public class leet654 {
     //求最大值和它的位置
   static   int [] helper(int []nums,int i,int j){
         if(j<i) return new int[]{-1,0};
-        int max=0;
-        int index=0;
+        int max=-1;
+        int index=-1;
         for(;i<=j;i++){
             if(nums[i]>max){
                  max=nums[i];
@@ -36,9 +37,4 @@ public class leet654 {
         return new int []{index,max};
     }
 
-    public static void main(String[] args) {
-    for(int a:helper(new int[]{3,2,1,6,0,5},0,5)){
-        System.out.println(a);
-    }
-    }
 }
