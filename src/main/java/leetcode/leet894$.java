@@ -9,7 +9,6 @@ import java.util.List;
 public class leet894$ {
     List<TreeNode> result=new LinkedList<>();
     public List<TreeNode> allPossibleFBT(int N) {
-
 return null;
     }
 
