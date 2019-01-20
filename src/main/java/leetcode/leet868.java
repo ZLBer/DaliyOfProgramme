@@ -1,7 +1,5 @@
 package leetcode;
 
-import java_code.util.LinkedList;
-
 /**
  * Created by libin on 2019/1/19.
  */
