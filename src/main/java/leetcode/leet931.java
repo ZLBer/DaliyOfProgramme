@@ -52,7 +52,7 @@ return  minResutl;
         return ans;
     }
 
-// 依旧是动态规划，但是十分简洁clean  但是极慢
+// 依旧是动态规划，但是十分简洁clean  但是慢了点
  /*   public int minFallingPathSum(int[][] A) {
         for (int i = 1; i < A.length; ++i)
             for (int j = 0; j < A.length; ++j)
