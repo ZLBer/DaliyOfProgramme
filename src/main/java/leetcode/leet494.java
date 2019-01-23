@@ -57,7 +57,7 @@ Note that the above formula has proved that target + sum(nums) must be even
         //全部加起来还小于s或者 s+sum是奇数  则不存在P                   //(s+sum)/2
         return sum < s || (s + sum) % 2 > 0 ? 0 : subsetSum(nums, (s + sum) >>> 1);
     }
-
+  //// TODO: 2019/1/23  不是很理解DP
     public int subsetSum(int[] nums, int s) {
         int[] dp = new int[s + 1];
         dp[0] = 1;
