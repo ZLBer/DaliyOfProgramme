@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * Created by libin on 2019/1/23.
  */
-public class leet856 {
+public class leet856$ {
    /* public int scoreOfParentheses(String S) {
         Stack<Character> stack=new Stack<>();
        for(int i=0;i<S.length();i++){
@@ -26,7 +26,7 @@ public class leet856 {
      }*/
 
 
-    public int scoreOfParentheses(String S) {
+  /*public int scoreOfParentheses(String S) {
         Stack<String> stack=new Stack<>();
         for(int i=0;i<S.length();i++){
             if(S.charAt(i)=='(') stack.push("(");
@@ -56,7 +56,54 @@ public class leet856 {
             }
         }
         return true;
+    }*/
+
+// 用栈
+public int scoreOfParentheses(String S) {
+    Stack<Integer> stack = new Stack<>();
+    for (char c : S.toCharArray()) {
+        //左括号入栈
+        if (c == '(') {
+            stack.push(-1);
+        } else { //
+            int cur = 0;
+            //如果前一个不是括号
+            while (stack.peek() != -1) {
+                cur += stack.pop();
+            }
+            //直到遇到括号
+            stack.pop();
+            //翻倍
+            stack.push(cur == 0 ? 1 : cur * 2);
+        }
     }
+    int sum = 0;
+    //多个括号并列的情况
+    while (!stack.isEmpty()) {
+        sum += stack.pop();
+    }
+    return sum;
+}
+
+
+  //用栈的一种简单方法
+   /* public int scoreOfParentheses(String S) {
+        Stack<Integer> stack = new Stack();
+        stack.push(0); // The score of the current frame
+
+        for (char c: S.toCharArray()) {
+            if (c == '(')
+                stack.push(0);
+            else {
+                int v = stack.pop();
+                int w = stack.pop();
+                stack.push(w + Math.max(2 * v, 1));
+            }
+        }
+
+        return stack.pop();
+    }*/
+
     public static void main(String[] args) {
         char a='1';
         System.out.println(a);
