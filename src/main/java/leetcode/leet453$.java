@@ -30,4 +30,8 @@ just another way to think of the magic equation.
         for (int n : nums) res += n - min;
         return res;
     }
+
+    public static void main(String[] args) {
+        System.out.println(241/100%9);
+    }
 }
