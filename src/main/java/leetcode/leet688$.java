@@ -59,7 +59,8 @@ public class leet688$ {
 
 
     //  DP
-    public double knightProbability(int N, int K, int sr, int sc) {
+    //big  nice solution
+ static    public double knightProbability(int N, int K, int sr, int sc) {
         double[][] dp = new double[N][N];
         int[] dr = new int[]{2, 2, 1, 1, -1, -1, -2, -2};
         int[] dc = new int[]{1, -1, 2, -2, 2, -2, 1, -1};
@@ -85,5 +86,9 @@ public class leet688$ {
             for (double x: row) ans += x;
         }
         return ans;
+    }
+
+    public static void main(String[] args) {
+        knightProbability(3,1,0,0);
     }
 }
