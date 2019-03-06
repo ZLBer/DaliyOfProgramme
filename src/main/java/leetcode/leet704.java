@@ -4,6 +4,7 @@ package leetcode;
  * Created by libin on 2019/3/4.
  */
 public class leet704 {
+
     public int search(int[] nums, int target) {
 
         int low=0;
@@ -16,9 +17,7 @@ public class leet704 {
         }
 
         return -1;
-
-
-
     }
+
 
 }
