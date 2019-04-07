@@ -4,30 +4,35 @@ package leetcode;
  * Created by libin on 2019/3/27.
  */
 public class leet1020 {
-    public boolean canThreePartsEqualSum(int[] A) {
-       int sum=0;
-        for(int a:A){
-sum+=a;
-       }
-       int subThree=sum/3;
-       if(subThree*3!=sum) return false;
+
+    public int numEnclaves(int[][] A) {
 
 
-       int temp=0;
-       int count=0;
-       for(int i=0;i<A.length;i++){
-        temp+=A[i];
+      for(int i=0;i<A.length;i++){
+          for(int j=0;j<A[0].length;j++){
+                if(i==0||i==A.length-1||j==0||j==A[0].length-1)  //只搜索边界
+                     dfs(A,i,j);
+          }
+      }
 
-        if(temp==0) {
-            temp=0;
-            count++;
+      int result=0;
+        for(int i=0;i<A.length;i++){
+            for(int j=0;j<A[0].length;j++) {
+                if(A[i][j]==1) result++;
+
+            }
+            }
+return result;
+
+    }
+
+    void dfs(int[][]a,int i,int j){  //将与这个边界点有关的所有路径变为0
+        if(i >= 0 && i <= a.length - 1 && j >= 0 && j <= a[i].length - 1 && a[i][j] == 1) {
+            a[i][j]=0;
+            dfs(a,i+1,j);
+            dfs(a,i-1,j);
+            dfs(a,i,j+1);
+            dfs(a,i,j-1);
         }
-
-       }
-
-       if(count==3) return true;
-        else return false;
-
-
     }
 }

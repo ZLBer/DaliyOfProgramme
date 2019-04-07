@@ -1,29 +1,47 @@
 package leetcode;
 
+import java.util.Stack;
+
 /**
  * Created by libin on 2019/3/27.
  */
 public class leet1021 {
+    public String removeOuterParentheses(String S) {
 
-    //遍历  Time Limited
-//    public int maxScoreSightseeingPair(int[] A) {
-//       int  maxScore=Integer.MIN_VALUE;
-//        for(int i=0;i<A.length;i++){
-//      for(int j=i+1;j<A.length;j++){
-//          int sum=A[i]+A[j]+i-j;
-//          maxScore=Math.max(sum,maxScore);
-//      }
-//  }
-//
-//  return maxScore;
-//
-//    }
-    public int maxScoreSightseeingPair(int[] A) {
-        int res=0,cur=0;
-        for(int a:A) {
-            res = Math.max(res, cur + a);  //res 存储结果
-            cur = Math.max(cur, a) - 1;  //cur 代表当前最大，未加a
+
+        StringBuilder result=new StringBuilder();
+        StringBuilder temp=new StringBuilder();
+        int count=0;
+        for (int i = 0; i < S.length(); i++) {
+         char a=S.charAt(i);
+
+         if(a=='('){
+             temp.append('(');
+             count++;
+         }
+         else if(a==')'&&count!=1){
+             temp.append(')');
+             count--;
+         }
+         else {
+             result.append(temp.toString().substring(1,temp.length()));
+             temp=new StringBuilder();
+             count=0;
+         }
         }
-        return res;
+
+
+
+        return result.toString();
     }
+    //大神的做法 追求简洁和优雅
+  /*  public String removeOuterParentheses(String S) {
+        StringBuilder s = new StringBuilder();
+        int opened = 0;
+        for (char c : S.toCharArray()) {
+            if (c == '(' && opened++ > 0) s.append(c);
+            if (c == ')' && opened-- > 1) s.append(c);
+        }
+        return s.toString();
+    }*/
 }

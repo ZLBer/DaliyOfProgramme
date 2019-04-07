@@ -1,13 +1,10 @@
 package leetcode;
 
-
-import java.util.ArrayList;
-
 /**
- * Created by libin on 2019/3/27.
+ * Created by libin on 2019/3/29.
  */
-public class leet1022$ {
-//    public int smallestRepunitDivByK(int K) {
+public class leet1015$ {
+    //    public int smallestRepunitDivByK(int K) {
 //        Integer ls[]={1,11,111,1111,11111,111111,1111111,11111111,111111111,1111111111};
 //
 //        for(int i=0;i<ls.length;i++){

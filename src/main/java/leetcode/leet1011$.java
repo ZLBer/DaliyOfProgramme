@@ -1,9 +1,10 @@
 package leetcode;
 
 /**
- * Created by libin on 2019/3/19.
+ * Created by libin on 2019/4/7.
  */
-public class leet1014$ {
+public class leet1011$ {
+
     //这想法是真的厉害..
     public int shipWithinDays(int[] weights, int D) {
         int left = 0, right = 0;
