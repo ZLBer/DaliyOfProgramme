@@ -15,7 +15,7 @@ public class leet1024 {
 
         for(int i=0;i<clips.length;){
             if(clips[i][0]>end) return -1;
-int newend=end;
+          int newend=end;
             while (i<clips.length&&clips[i][0]<=end)
                 newend=Math.max(newend,clips[i++][1]);
 
