@@ -7,6 +7,6 @@ public class leet1025$ {
 
     //数学问题 - -@
     public boolean divisorGame(int N) {
-        return N%2==0;
+        return N%2 ==0;
     }
 }

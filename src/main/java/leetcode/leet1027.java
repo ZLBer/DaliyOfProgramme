@@ -45,6 +45,7 @@ public class leet1027 {
                 int diff=A[i]-A[j];
                 Map<Integer,Integer> mapj=list[j];
                 int d=mapj.getOrDefault(diff,0)+1;
+                //此处需要注意，防止把更大的值覆盖了
                 int d2=mapi.getOrDefault(diff,0);
                 mapi.put(diff,Math.max(d2,d));
                 result=Math.max(d,result);
