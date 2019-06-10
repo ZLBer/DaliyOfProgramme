@@ -27,7 +27,7 @@ public class leet590 {
         result.add(node.val);
     }*/
     //非递归  10ms
-    public List<Integer> postorder(Node root) {
+   /* public List<Integer> postorder(Node root) {
             LinkedList<Integer> list = new LinkedList();
             if(root == null) return list;
 
@@ -43,5 +43,5 @@ public class leet590 {
             }
 
             return list;
-        }
+        }*/
 }
