@@ -25,7 +25,7 @@ public class leet1128 {
             result += v * (v - 1) / 2;
         }*/
 
-
+int a=1;
         return result;
     }
 }
