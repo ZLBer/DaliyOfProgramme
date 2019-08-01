@@ -41,7 +41,15 @@ public class leetcodeProblems implements PageProcessor {
 //
 //        }
     }
-
+/*  
+ *    
+ *   
+ * @author BNer  
+ * @date 2019/1/19 20:06
+ * @param [args]  
+ * @return void
+ *  利用json模拟Post请求
+ */  
         public static void main(String[] args) {
             long startTime, endTime;
             System.out.println("开始爬取");
