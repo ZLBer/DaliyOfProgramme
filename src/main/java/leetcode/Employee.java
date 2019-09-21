@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by libin on 2019/2/15.
  */
-class Employee {
+public  class Employee {
     // It's the unique id of each node;
     // unique id of this employee
     public int id;
