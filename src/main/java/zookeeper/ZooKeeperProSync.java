@@ -1,17 +1,12 @@
-package leetcode.zookeeper;
+package zookeeper;
 
 
 import java.util.concurrent.CountDownLatch;
 
-import org.apache.kafka.common.metrics.MetricConfig;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.Watcher.Event.EventType;
-import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
-
-import java.util.concurrent.CountDownLatch;
 
 public class ZooKeeperProSync implements Watcher {
 
@@ -25,6 +20,7 @@ public class ZooKeeperProSync implements Watcher {
         //连接zookeeper并且注册一个默认的监听器
         zk = new ZooKeeper("47.94.134.137:2181", 5000, //
                 new ZooKeeperProSync());
+
         //等待zk连接成功的通知
         connectedSemaphore.await();
         //获取path目录节点的配置数据，并注册默认的监听器
