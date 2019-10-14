@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Queue;
 
 public class leet199 {
+
+    //mine 层序遍历
     public List<Integer> rightSideView(TreeNode root) {
 
        List<Integer> result=new ArrayList<>();
@@ -21,11 +23,20 @@ public class leet199 {
                 if(size==0) result.add(node.val);
             }
         }
-
-
-
-
        return result;
     }
 
+   /* public List<Integer> rightSideView(TreeNode root) {
+      List<Integer> result=new ArrayList<>();
+      helper(result,root,0);
+      return result;
+    }
+
+    void helper(List<Integer> list,TreeNode node,int deep){
+        if(node==null) return;
+        if(list.size()==deep)
+              list.add(node.val);
+        helper(list,node.right,deep+1);
+        helper(list,node.left,deep+1);
+    }*/
 }
