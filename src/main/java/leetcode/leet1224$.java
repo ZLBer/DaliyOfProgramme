@@ -1,6 +1,6 @@
 package leetcode;
 
-public class leet1124$ {
+public class leet1224$ {
 
     //这种题.. 算是一种hash吧，用到了hash表
     //这种题只能自己总结情况，的确不是很好想
