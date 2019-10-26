@@ -1,6 +1,6 @@
 package leetcode;
 
-public class leetco1 {
+public class leet1232 {
     public boolean checkStraightLine(int[][] coordinates) {
         double xieLv=0;
         double coreX=coordinates[0][0],coreY=coordinates[0][1];

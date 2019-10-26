@@ -1,6 +1,6 @@
 package leetcode;
 
-public class leetc1 {
+public class leet1230$ {
     //TLE
 /*    public double probabilityOfHeads(double[] prob, int target) {
         memo=new Double[prob.length+1][target+1];

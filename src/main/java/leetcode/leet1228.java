@@ -1,6 +1,6 @@
 package leetcode;
 
-public class leetc3 {
+public class leet1228 {
 
     public int missingNumber(int[] arr) {
         int sub=(arr[arr.length-1]-arr[0])/arr.length;

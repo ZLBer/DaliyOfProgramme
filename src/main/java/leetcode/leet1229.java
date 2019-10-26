@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class leetc2 {
+public class leet1229 {
     public List<Integer> minAvailableDuration(int[][] slots1, int[][] slots2, int duration) {
      int i=0,j=0;
      List<Integer> res=new ArrayList<>();
