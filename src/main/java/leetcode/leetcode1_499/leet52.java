@@ -36,6 +36,11 @@ public class leet52 {
         return true;
     }
 
+    public static void main(String[] args) {
+      leet52 l=new leet52();
+        System.out.println(l.totalNQueens(64));
+    }
+
 /*
 
     *//**
