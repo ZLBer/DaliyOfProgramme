@@ -1,0 +1,7 @@
+# Write your MySQL query statement below
+# in
+#select Name as Customers  from Customers where Id not in(select distinct( CustomerId) from Orders )
+#左连接
+#select Name as Customers from Customers a left join Orders b on a.Id=b.CustomerId where b.Id is null
+#exits
+select Name as Customers from Customers a where  not exists (select 1 from Orders b where a.Id=b.CustomerId)

@@ -1,0 +1,6 @@
+
+
+
+
+  //记住having 的用法
+ // select class from courses group by class having count(distinct student)>=5

@@ -1,0 +1,16 @@
+# Write your MySQL query statement below
+
+#delete a from Person a,Person b where a.Email=b.Email and a.Id >b.Id
+
+
+delete from Person where id not in(select min(id) as id from Person group by email)
+you will be noted " You can't specify target table 'Person' for update in FROM clause ",
+The solution is using a middle table with select clause:
+
+delete from Person where id not in(
+    select t.id from (
+        select min(id) as id from Person group by email
+    ) t
+)
+
+

@@ -1,0 +1,9 @@
+# Write your MySQL query statement below
+
+# 连接
+#select a.id from Weather a inner join Weather b on datediff(a.RecordDate,b.RecordDate)=1 where a.Temperature>b.Temperature
+
+# 直接搜
+#select a.id from Weather a,Weather b where datediff(a.RecordDate,b.RecordDate)=1 and a.Temperature>b.Temperature
+
+select a.id from Weather a,Weather b where to_days(a.RecordDate)-to_days(b.RecordDate)=1 and a.Temperature>b.Temperature
