@@ -1,0 +1,11 @@
+# Write your MySQL query statement below
+
+#mine 按条件内连接
+# select b.id,a.student  from seat a left join seat b on( a.id mod 2 = 1 and a.id+1 = b.id ) or (a.id mod 2 = 0 and a.id - 1 =b.id) or (a.id mod 2 =1 and a.id = b.id and a.id in(select max(id) from seat ))
+
+# if语句  简洁明了
+
+select
+if(id < (select count(*) from seat), if(id mod 2=0, id-1, id+1), if(id mod 2=0, id-1, id)) as id, student
+from seat
+order by id asc;
