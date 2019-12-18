@@ -128,7 +128,10 @@ public class leet301 {
     }*/
 
 
-    public List<String> removeInvalidParentheses(String s) {
+
+
+ //看不懂大神的解法  先放着
+ /*   public List<String> removeInvalidParentheses(String s) {
         List<String> output = new ArrayList<>();
         removeHelper(s, output, 0, 0, '(', ')');
         return output;
@@ -153,6 +156,6 @@ public class leet301 {
             removeHelper(reversed, output, 0, 0, ')','(');
         else
             output.add(reversed);
-    }
+    }*/
 
 }
