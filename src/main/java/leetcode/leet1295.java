@@ -1,6 +1,6 @@
 package leetcode;
 
-public class leetc1 {
+public class leet1295 {
     public int findNumbers(int[] nums) {
    int res=0;
         for (int i = 0; i < nums.length; i++) {
@@ -8,4 +8,9 @@ public class leetc1 {
         }
         return res;
     }
+    //函数式子
+/*    public int findNumbers(int[] nums) {
+    return Arrays.stream(nums).map(i->1-Integer.toString(i).length()%2).sum();
+    }*/
+
 }

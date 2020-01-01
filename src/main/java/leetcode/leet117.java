@@ -1,7 +1,7 @@
 package leetcode;
 
 public class leet117 {
- /*   //mine  可以直接利用116题的层序遍历
+ /*  //mine  可以直接利用116题的层序遍历
     public Node connect(Node root) {
         if(root==null) return root;
         Queue<Node> queue=new LinkedList<>();
