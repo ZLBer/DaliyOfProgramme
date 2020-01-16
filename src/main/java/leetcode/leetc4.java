@@ -1,42 +1,40 @@
 package leetcode;
 
+import java.util.*;
+
 public class leetc4 {
-    //dfs超时
-/*  public int minInsertions(String s) {
+    public int minimumDistance(String word) {
+      int[][]dp=new int[26][26];
+      dp[0][1]=0;
+      dp[1][0]=0;
+      for(int i=2;i<word.length();i++){
+         //移动第一个手指,第二个手指一定在i-1
+          for(int j=0;j<i;j++){
 
-        dfs(0,s.length()-1,s,0);
-        return min;
+          }
+
+          int min=Integer.MAX_VALUE;
+          for(int j=0;j<i-1;j++){
+              int dis=distance(word.charAt(j),word.charAt(j));
+             min=Math.min(dp[i-1][j]+dis,dp[j][i-1]+dis);
+          }
+
+      }
+      return  0;
     }
-    int min=Integer.MAX_VALUE;
-    void dfs(int l,int r,String s,int insert){
-        if(r<=l) {
-            min= Math.min(insert,min);
-            return;
-        }
-        if(insert>=min) return;
-        if(s.charAt(l)==s.charAt(r)){
-            dfs(l+1,r-1,s,insert);
-            return;
-        }
-
-        dfs(l+1,r,s,insert+1);
-        dfs(l,r-1,s, insert+1);
-
-    }*/
-  //其实就相当于带memo的dfs  防止了很多重复的搜索
-    public int minInsertions(String s) {
-     return findMinInsertionsDP(s.toCharArray(),s.length());
+    int distance(char a,char b){
+        a-='A';b-='B';
+      return   Math.abs(a/6-b/6)+Math.abs(a%6-b%6);
     }
-    static int findMinInsertionsDP(char str[], int n)
-    {
-        int table[][] = new int[n][n];
-        int l, h, gap;
-        for (gap = 1; gap < n; ++gap)
-            for (l = 0, h = gap; h < n; ++l, ++h)
-                table[l][h] = (str[l] == str[h])?
-                        table[l+1][h-1] :
-                        (Integer.min(table[l][h-1],
-                                table[l+1][h]) + 1);
-        return table[0][n-1];
+    static {
+        List<Integer> list = new ArrayList<>();
+        Arrays.asList();
+        Class c=int.class;
+        PriorityQueue priorityQueue=new PriorityQueue(new Comparator() {
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
+        });
     }
 }

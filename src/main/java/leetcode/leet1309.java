@@ -1,6 +1,6 @@
 package leetcode;
 
-public class leetc1 {
+public class leet1309 {
     public String freqAlphabets(String s) {
       StringBuilder sb=new StringBuilder();
       for(int i=0;i<s.length();){

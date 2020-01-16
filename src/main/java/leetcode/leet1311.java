@@ -2,7 +2,7 @@ package leetcode;
 
 import java.util.*;
 
-public class leetc3 {
+public class leet1311 {
     public List<String> watchedVideosByFriends(List<List<String>> watchedVideos, int[][] friends, int id, int level) {
         Queue<Integer >queue=new LinkedList<>();
         queue.add(id);
