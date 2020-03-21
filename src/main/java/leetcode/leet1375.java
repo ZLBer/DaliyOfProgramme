@@ -10,7 +10,7 @@ public class leet1375 {
         int res=0;
         for (int i = 0; i < light.length; i++) {
             int index=light[i];
-            maxIndex=Math.max(maxIndex,index);
+            maxIndex=Math.maxSum(maxIndex,index);
             isOn[index]=true;
             //若前一个是蓝灯，这个就可变蓝
             if(isBlue[index-1]){

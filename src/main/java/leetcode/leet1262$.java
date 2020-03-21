@@ -60,7 +60,7 @@ maxss=0;
        int div1Length=div1.size();
        int div2Lenghth=div2.size();
        if(i+2>=div1Length&&j+2>=div2Lenghth&&(i>=div1Length||j>=div2Lenghth)){
-            maxss=Math.max(maxss,res);
+            maxss=Math.maxSum(maxss,res);
             return;
        }
 
@@ -103,7 +103,7 @@ maxss=0;
             if (q2.size() > 1) {
                 t2 = sum - q2.get(0) - q2.get(1);
             }
-            return Math.max(t1, t2);
+            return Math.maxSum(t1, t2);
         } else if (sum % 3 == 2) {
             int t1 = 0;
             int t2 = 0;
@@ -113,7 +113,7 @@ maxss=0;
             if (q1.size() > 1) {
                 t2 = sum - q1.get(0) - q1.get(1);
             }
-            return Math.max(t1, t2);
+            return Math.maxSum(t1, t2);
         }
         return sum;
     }*/

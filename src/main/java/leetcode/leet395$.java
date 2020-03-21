@@ -17,7 +17,7 @@ public class leet395$ {
              count[arr[right]-'a']++;
          }else {
              while (left<=right){
-                 if(check(count,k)) res=Math.max(res,right-left);
+                 if(check(count,k)) res=Math.maxSum(res,right-left);
                  count[arr[left]-'a']--;
                  left++;
              }
@@ -25,7 +25,7 @@ public class leet395$ {
          }
          right++;
      }
-        if(check(count,k)) res=Math.max(res,right-left);
+        if(check(count,k)) res=Math.maxSum(res,right-left);
      return res;
      }
      boolean check(int []count,int k){
@@ -63,7 +63,7 @@ public class leet395$ {
             }
 
             // if we found a string where the number of unique chars equals our target
-            // and all those chars are repeated at least K times then update max
+            // and all those chars are repeated at least K times then update maxSum
             if (numUnique == numUniqueTarget && numUnique == numNoLessThanK)
                 d = Math.max(end - begin, d);
         }
@@ -90,7 +90,7 @@ public class leet395$ {
                     if (str[j] == i+'a') {
                         int left = helper(str, start, j, k);
                         int right = helper(str, j+1, end, k);
-                        return Math.max(left, right);
+                        return Math.maxSum(left, right);
                     }
                 }
             }

@@ -30,7 +30,7 @@ public class leet123$ {
        int min=prices[0];
        for(int i=1;i<prices.length;i++){
            min=Math.min(min,prices[i]-dp[k-1][i]);
-           dp[k][i]=Math.max(dp[k][i-1],prices[i]-min);
+           dp[k][i]=Math.maxSum(dp[k][i-1],prices[i]-min);
        }
    }
    return dp[2][prices.length-1];
@@ -49,7 +49,7 @@ public class leet123$ {
         for (int i = 1; i < prices.length; i++) {
             for (int k = 1; k <= K; k++) {
                 min[k] = Math.min(prices[i] - dp[i][k - 1], min[k]);
-                dp[i][k] = Math.max(dp[i - 1][k], prices[i] - min[k]);
+                dp[i][k] = Math.maxSum(dp[i - 1][k], prices[i] - min[k]);
             }
         }
         return dp[prices.length - 1][K];
@@ -68,7 +68,7 @@ public class leet123$ {
        for(int i=1;i<prices.length;i++){
            for(int k=1;k<=2;k++){
                min[k]=Math.min(min[k],prices[i]-dp[k-1]);
-               dp[k]=Math.max(dp[k],prices[i]-min[k]);
+               dp[k]=Math.maxSum(dp[k],prices[i]-min[k]);
            }
        }
        return dp[2];
@@ -84,10 +84,10 @@ public class leet123$ {
         int min2 = prices[0];
         for (int i = 1; i < prices.length; i++) {
             min1 = Math.min(prices[i] - 0, min1);
-            dp1 = Math.max(dp1, prices[i] - min1);
+            dp1 = Math.maxSum(dp1, prices[i] - min1);
 
             min2 = Math.min(prices[i] - dp1, min2);
-            dp2 = Math.max(dp2, prices[i] - min2);
+            dp2 = Math.maxSum(dp2, prices[i] - min2);
         }
         return dp2;
     }*/
@@ -97,11 +97,11 @@ public class leet123$ {
         }
         int s1=-prices[0],s2=Integer.MIN_VALUE,s3=Integer.MIN_VALUE,s4=Integer.MIN_VALUE;
         for (int i = 1; i < prices.length; i++) {
-            s1=Math.max(s1,-prices[i]); //买入价格更低的股票
-            s2=Math.max(s2,s1+prices[i]);//卖出当前股票或不操作
-            s3=Math.max(s3,s2-prices[i]);//第二次买入或不操作
-            s4=Math.max(s4,s3+prices[i]);//第二次卖出，或者不操作
+            s1=Math.maxSum(s1,-prices[i]); //买入价格更低的股票
+            s2=Math.maxSum(s2,s1+prices[i]);//卖出当前股票或不操作
+            s3=Math.maxSum(s3,s2-prices[i]);//第二次买入或不操作
+            s4=Math.maxSum(s4,s3+prices[i]);//第二次卖出，或者不操作
         }
-        return Math.max(0,s4);
+        return Math.maxSum(0,s4);
     }*/
 }

@@ -11,14 +11,14 @@ public class leet646 {
      int[]dp=new int[pairs.length];
      int res=0;
         for (int i = 0; i < pairs.length; i++) {
-           int max=1;
+           int maxSum=1;
             for(int j=0;j<i;j++){
                if(pairs[i][0]>pairs[j][1]){
-                   max=Math.max(max,dp[j]+1);
+                   maxSum=Math.maxSum(maxSum,dp[j]+1);
                }
 
-           }   dp[i]=max;
-            res=Math.max(res,dp[i]);
+           }   dp[i]=maxSum;
+            res=Math.maxSum(res,dp[i]);
         }
         return res;
     }

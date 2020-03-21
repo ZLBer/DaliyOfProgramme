@@ -14,25 +14,25 @@ public class leet1335$ {
           else return Integer.MIN_VALUE;
       }
       if(dp[i][d]!=0) return dp[i][d];
-      if(d==1) return max(jobDifficulty,i,jobDifficulty.length-1);
-      int max=0;
+      if(d==1) return maxSum(jobDifficulty,i,jobDifficulty.length-1);
+      int maxSum=0;
       int res= Integer.MAX_VALUE;
       for(int index=i;index<jobDifficulty.length;index++){
-         max=Math.max(max,jobDifficulty[index]);
+         maxSum=Math.maxSum(maxSum,jobDifficulty[index]);
         int temp=dfs(jobDifficulty,index+1,d-1,dp);
         if(temp!= Integer.MIN_VALUE)
-           res=Math.min(res,max+temp);
+           res=Math.min(res,maxSum+temp);
       }
       dp[i][d]=res;
       return res;
     }
 
-    int max(int []arr,int from,int to){
-        int max=0;
+    int maxSum(int []arr,int from,int to){
+        int maxSum=0;
         for(int i=from;i<=to;i++){
-            max=Math.max(arr[i],max);
+            maxSum=Math.maxSum(arr[i],maxSum);
         }
-        return max;
+        return maxSum;
     }*/
 
 
@@ -70,7 +70,7 @@ public class leet1335$ {
 
         dp[0][0] = jobDifficulty[0];
         for(int i = 1; i < n; i++){
-            dp[0][i] = Math.max(jobDifficulty[i],dp[0][i-1]);
+            dp[0][i] = Math.maxSum(jobDifficulty[i],dp[0][i-1]);
         }
 
         for(int i = 1; i < d; i++){//天数
@@ -78,7 +78,7 @@ public class leet1335$ {
                 int localMax = jobDifficulty[j];
                 dp[i][j] = Integer.MAX_VALUE;
                 for(int r = j; r >= i; r--){
-                    localMax = Math.max(localMax,jobDifficulty[r]);
+                    localMax = Math.maxSum(localMax,jobDifficulty[r]);
                     dp[i][j] =  Math.min(dp[i][j],dp[i-1][r-1] + localMax);
                 }
             }

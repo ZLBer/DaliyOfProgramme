@@ -24,20 +24,20 @@ public class leet1301$ {
   }
   int key=0;
   for( int k: map.keySet()){
- key=Math.max(k,key);
+ key=Math.maxSum(k,key);
   }
         return new int[]{key,map.get(key)};
     }
-    int max=0;
+    int maxSum=0;
     Map<Integer,Integer> map=new HashMap<>();
     int [][]next=new int[][]{{0,-1},{-1,0},{-1,-1}};
 
 
    void DFS(int[][]boards,int x,int y,int score){
        if(x==0&&y==0){
-           if(score<max) return;
+           if(score<maxSum) return;
       map.put(score,map.getOrDefault(score,0)+1);
-           max= Math.max(max,score);
+           maxSum= Math.maxSum(maxSum,score);
            return;
        }
        for (int i = 0; i < next.length; i++) {

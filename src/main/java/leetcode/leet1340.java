@@ -17,21 +17,21 @@ public class leet1340 {
               for(int x=1;x<=d;x++){
                int j=i+x;
                if(j>=arr.length) break; ;
-               k=Math.max(arr[j],k);
+               k=Math.maxSum(arr[j],k);
                if(arr[i]>k){
-                   dp[i]=Math.max(dp[i],dp[j]+1);
+                   dp[i]=Math.maxSum(dp[i],dp[j]+1);
                }
               }
               k=0; //再次初始
             for(int x=1;x<=d;x++){
                 int j=i-x;
                 if(j<0) break;
-                k=Math.max(arr[j],k);
+                k=Math.maxSum(arr[j],k);
                 if(arr[i]>k){
-                    dp[i]=Math.max(dp[i],dp[j]+1);
+                    dp[i]=Math.maxSum(dp[i],dp[j]+1);
                 }
             }
-            res=Math.max(res,dp[i]);
+            res=Math.maxSum(res,dp[i]);
             System.out.println( a[0]+"  "+res);
         }
         return res;

@@ -13,7 +13,7 @@ public class leet887$ {
 
          int res=Integer.MAX_VALUE;
          for(int i=1;i<=N;i++){
-           int temp=Math.max(helper(K-1,i-1),helper(K,N-i));
+           int temp=Math.maxSum(helper(K-1,i-1),helper(K,N-i));
            res=Math.min(res,1+temp);
          }
          return res;
@@ -35,7 +35,7 @@ public class leet887$ {
         if(dp[K][N]!=0) return dp[K][N];
         int res=Integer.MAX_VALUE;
         for(int i=1;i<=N;i++){
-            int temp=Math.max(helper(K-1,i-1),helper(K,N-i));
+            int temp=Math.maxSum(helper(K-1,i-1),helper(K,N-i));
             res=Math.min(res,1+temp);
         }
         dp[K][N]=res;
@@ -58,7 +58,7 @@ public class leet887$ {
             for(int n=1;n<=N;n++){
                int temp=Integer.MAX_VALUE;
                 for(int x=1;x<=n;x++) {
-                    temp = Math.min(temp, 1 + Math.max(dp[k][x - 1], dp[k - 1][n - x]));
+                    temp = Math.min(temp, 1 + Math.maxSum(dp[k][x - 1], dp[k - 1][n - x]));
                 }
                 dp[k][n]=temp;
             }

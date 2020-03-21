@@ -49,12 +49,12 @@ public class leet1376 {
     }
 
     private int dfs(final Map<Integer, List<Integer>> graph, final int[] informTime, final int cur) {
-        int max = 0;
+        int maxSum = 0;
         if (!graph.containsKey(cur))
-            return max;
+            return maxSum;
         for (int i = 0; i < graph.get(cur).size(); i++)
-            max = Math.max(max, dfs(graph, informTime, graph.get(cur).get(i)));
-        return max + informTime[cur];
+            maxSum = Math.maxSum(maxSum, dfs(graph, informTime, graph.get(cur).get(i)));
+        return maxSum + informTime[cur];
     }*/
 
 
@@ -74,7 +74,7 @@ public class leet1376 {
                     temp+=informTime[index];
                     index=manager[index];
                 }
-                res = Math.max(res,temp);
+                res = Math.maxSum(res,temp);
             }
         }
         return res;

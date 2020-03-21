@@ -26,16 +26,16 @@ public class leet1371 {
             System.out.println(Integer.toBinaryString(dp[i]));
         }
 
-     int max=0;
+     int maxSum=0;
      for(int i=0;i<s.length();i++){
-         if(s.length()-i<=max) break;
+         if(s.length()-i<=maxSum) break;
          for(int j=s.length()-1;j>i;j--){
-             if(j-i+1<=max) break;
-             if((dp[j+1]^dp[i])==0) max=Math.max(max,j-i+1);
+             if(j-i+1<=maxSum) break;
+             if((dp[j+1]^dp[i])==0) maxSum=Math.maxSum(maxSum,j-i+1);
          }
 
      }
-     return max;
+     return maxSum;
     }
 */
 
@@ -47,7 +47,7 @@ public class leet1371 {
         char[] vowels = new char[]{'a', 'e', 'i', 'o', 'u'};
         int[] dp = new int[s.length() + 1];
         Map<Integer,Integer> map=new HashMap<>();
-        int max=0;
+        int maxSum=0;
         map.put(0,-1); //很关键的一点 0是-1
         for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
@@ -61,9 +61,9 @@ public class leet1371 {
             }
             map.putIfAbsent(dp[i+1],i);
 
-            max=Math.max(max,i-map.get(dp[i+1]));
+            maxSum=Math.maxSum(maxSum,i-map.get(dp[i+1]));
         }
-        return max;
+        return maxSum;
     }*/
 
     //放弃数组

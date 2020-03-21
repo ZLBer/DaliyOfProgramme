@@ -66,8 +66,8 @@ public class leet1300 {
 //害 这比用上边的二分好多了 也不用分那么多情况
 /*    public int findBestValue(int[] arr, int target) {
         int s=0, m=-1;
-        for(int v:arr) { s += v; m=Math.max(m,v); }
-        if(s<=target) return m; // return the max value since we will keep all nums as is
+        for(int v:arr) { s += v; m=Math.maxSum(m,v); }
+        if(s<=target) return m; // return the maxSum value since we will keep all nums as is
 
         Arrays.sort(arr);
 
@@ -94,7 +94,7 @@ public class leet1300 {
         int l, r, mi, s=0, m=-1;
         for(int v:arr) { s += v; m=Math.max(m,v); }
 
-        if(s<=target) return m; // return the max value since we will keep all nums as is
+        if(s<=target) return m; // return the maxSum value since we will keep all nums as is
 
         for(l=1,r=m;l<r;) {
             mi=(l+r)/2;

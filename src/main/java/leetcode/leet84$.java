@@ -26,7 +26,7 @@ public class leet84$ {
         }
 
         for (int i = 0; i < height.length; i++) {
-            maxArea=Math.max(maxArea,height[i]*(rightLess[i]-leftless[i]-1));
+            maxArea=Math.maxSum(maxArea,height[i]*(rightLess[i]-leftless[i]-1));
         }
         return maxArea;
     }*/
@@ -86,7 +86,7 @@ public class leet84$ {
                 int tp = s.pop();
                 // height[tp]表示高度 ， i - 1 - s.peek()表示宽度 ；s.isEmpty()表示之前没有在比 height[tp] 更矮的了，为此刻的全局最低点，所以宽度返回当前位置的i序号
                 //(i - 1 - s.peek())到i之间肯定都是比height[tp]高的
-                maxArea = Math.max(maxArea, height[tp] * (s.isEmpty() ? i : i - 1 - s.peek()));
+                maxArea = Math.maxSum(maxArea, height[tp] * (s.isEmpty() ? i : i - 1 - s.peek()));
                 //保持序号不表继续往前找
                 i--;
             }

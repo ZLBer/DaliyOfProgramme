@@ -33,7 +33,7 @@ return dp[n];
         if(map.containsKey(num)) return map.get(num);
         int maxProduct=count==1?0:num;
         for(int i=1;i<=num/2;i++){
-            maxProduct=Math.max(maxProduct,dfs(i,count+1,map)*dfs(num-i,count+1,map));
+            maxProduct=Math.maxSum(maxProduct,dfs(i,count+1,map)*dfs(num-i,count+1,map));
         }
 
         map.put(num,maxProduct);
@@ -47,7 +47,7 @@ return dp[n];
         dp[1]=1;
         for(int i=2;i<=n;i++){
             for(int j=1;j<=i/2;j++){
-                dp[i]=Math.max(dp[i],Math.max(j,dp[j])*Math.max(i-j,dp[i-j]));
+                dp[i]=Math.maxSum(dp[i],Math.maxSum(j,dp[j])*Math.maxSum(i-j,dp[i-j]));
             }
         }
         return dp[n];

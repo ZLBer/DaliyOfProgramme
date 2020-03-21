@@ -10,7 +10,7 @@ public class leet910 {
             sum+=A[i];
         }
         int avg=sum/A.length;
-        int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+        int min=Integer.MAX_VALUE,maxSum=Integer.MIN_VALUE;
         for (int i = 0; i < A.length; i++) {
             if(A[i]<=avg){
                 A[i]+=K;
@@ -18,9 +18,9 @@ public class leet910 {
                 A[i]-=K;
             }
             min=Math.min(min,A[i]);
-            max=Math.max(max,A[i]);
+            maxSum=Math.maxSum(maxSum,A[i]);
         }
-        return max-min;
+        return maxSum-min;
     }*/
 
 
@@ -31,15 +31,15 @@ public class leet910 {
         return res;
     }
    static int res=Integer.MAX_VALUE;
-   static void  dfs(int[]A,int deep,int max,int min,int K){
+   static void  dfs(int[]A,int deep,int maxSum,int min,int K){
         if(deep>=A.length){
-            res= Math.min(res,max-min);
+            res= Math.min(res,maxSum-min);
             return ;
         }
-        int   tmax=Math.max(max,A[deep]+K);
+        int   tmax=Math.maxSum(maxSum,A[deep]+K);
        int  tmin= Math.min(min,A[deep]+K);
         dfs(A,deep+1,tmax,tmin,K);
-        tmax=Math.max(max,A[deep]-K);
+        tmax=Math.maxSum(maxSum,A[deep]-K);
         tmin= Math.min(min,A[deep]-K);
         dfs(A,deep+1,tmax,tmin,K);
     }
@@ -70,7 +70,7 @@ public class leet910 {
         Arrays.sort(A);
         int n = A.length, mx = A[n - 1], mn = A[0], res = mx - mn;
         for (int i = 0; i < n - 1; ++i) {
-            mx = Math.max(A[n-1], A[i] + 2 * K);
+            mx = Math.maxSum(A[n-1], A[i] + 2 * K);
             mn = Math.min(A[i + 1], A[0] + 2 * K);
             res = Math.min(res, mx - mn);
         }

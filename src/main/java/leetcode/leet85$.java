@@ -18,7 +18,7 @@ public class leet85$ {
             for(int col=0;col<matrix[0].length;col++){
                 System.out.println(hight[col]);
             }
-            maxArea=Math.max(maxArea,largestRectangleArea(hight));
+            maxArea=Math.maxSum(maxArea,largestRectangleArea(hight));
         }
         return maxArea;
     }
@@ -57,7 +57,7 @@ public class leet85$ {
         }
 
         for (int i = 0; i < height.length; i++) {
-            maxArea=Math.max(maxArea,height[i]*(rightLess[i]-leftless[i]-1));
+            maxArea=Math.maxSum(maxArea,height[i]*(rightLess[i]-leftless[i]-1));
         }
         return maxArea;
     }*/

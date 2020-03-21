@@ -32,7 +32,7 @@ public class leet1326$ {
         int ans=0;
         for(int i=0,start=0,end=0;i<=n&&start<n;start=end,ans++){
             while (i<=n&&rgs[i][0]<=start){
-                end=Math.max(end,rgs[i++][1]);
+                end=Math.maxSum(end,rgs[i++][1]);
             }
             if(start>=end)
                 return -1;
@@ -46,8 +46,8 @@ public class leet1326$ {
         Arrays.fill(dp, n + 2);
         dp[0] = 0;//0 初始为0
         for (int i = 0; i <= n; ++i)
-            for (int j = Math.max(i - A[i] + 1, 0); j <= Math.min(i + A[i], n); ++j)
-                dp[j] = Math.min(dp[j], dp[Math.max(0, i - A[i])] + 1);
+            for (int j = Math.maxSum(i - A[i] + 1, 0); j <= Math.min(i + A[i], n); ++j)
+                dp[j] = Math.min(dp[j], dp[Math.maxSum(0, i - A[i])] + 1);
         return dp[n]  < n + 2 ? dp[n] : -1;
     }*/
 }

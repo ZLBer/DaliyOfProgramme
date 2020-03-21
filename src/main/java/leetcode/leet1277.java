@@ -14,8 +14,8 @@ public class leet1277 {
             }
 
         }
-        int max = Math.min(matrix.length, matrix[0].length);
-        for (int length = 2; length <= max; length++) {
+        int maxSum = Math.min(matrix.length, matrix[0].length);
+        for (int length = 2; length <= maxSum; length++) {
             boolean[][] tdp = new boolean[matrix.length + 1][matrix[0].length];
             for (int i = length - 1; i < matrix.length; i++) {
                 for (int j = length - 1; j < matrix[0].length; j++) {

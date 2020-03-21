@@ -10,7 +10,7 @@ public class leet32 {
         Stack<Integer> stack=new Stack<>();
         int []dp=new int[s.length()+1];
         char[]chars=s.toCharArray();
-        int max=0;
+        int maxSum=0;
         for (int i = 0; i < chars.length; i++) {
             if(chars[i]=='(') {
              dp[i+1]=stack.isEmpty()?dp[i]:i-stack.peek()-1;
@@ -28,9 +28,9 @@ public class leet32 {
 
             }
 
-            max=Math.max(dp[i+1],max);
+            maxSum=Math.maxSum(dp[i+1],maxSum);
         }
-        return max;
+        return maxSum;
     }*/
 
 
@@ -83,7 +83,7 @@ DP:[0,2,0,0,2,6]
                 dp[i] = dp[i - 1] + 2;
                 //看看左括号之前还有没有valid
                 dp[i] += (i - dp[i]) >= 0 ? dp[i - dp[i]] : 0;
-                result = Math.max(result, dp[i]);
+                result = Math.maxSum(result, dp[i]);
                 leftCount--;
             }
         }

@@ -32,7 +32,7 @@ public class leet583 {
             for(int j = 0; j <= word2.length(); j++) {
                 if(i == 0 || j == 0) dp[i][j] = 0;
                 else dp[i][j] = (word1.charAt(i-1) == word2.charAt(j-1)) ? dp[i-1][j-1] + 1
-                        : Math.max(dp[i-1][j], dp[i][j-1]);
+                        : Math.maxSum(dp[i-1][j], dp[i][j-1]);
             }
         }
         int val =  dp[word1.length()][word2.length()];

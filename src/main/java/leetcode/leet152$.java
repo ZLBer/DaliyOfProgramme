@@ -4,7 +4,7 @@ public class leet152$ {
     //最大连续和
 /*
     public int maxProduct(int[] nums) {
-        int max=Integer.MIN_VALUE;
+        int maxSum=Integer.MIN_VALUE;
      int []dp=new int[nums.length+1];
         for (int i = 0; i < nums.length; i++) {
             if(dp[i]>0){
@@ -12,9 +12,9 @@ public class leet152$ {
             }else {
                 dp[i+1]=nums[i];
             }
-            max= Math.max(max,dp[i+1]);
+            maxSum= Math.maxSum(maxSum,dp[i+1]);
         }
-        return max;
+        return maxSum;
     }
 */
 
@@ -23,13 +23,13 @@ public class leet152$ {
 /*  static   public int maxProduct(int[] nums) {
          int res=nums[0];
        int []min=new int[nums.length];
-        int []max=new int[nums.length];
+        int []maxSum=new int[nums.length];
         min[0]=nums[0];
-        max[0]=nums[0];
+        maxSum[0]=nums[0];
         for (int i = 1; i < nums.length; i++) {
-           min[i]=Math.min(nums[i],Math.min(nums[i]*min[i-1],nums[i]*max[i-1]));
-           max[i]=Math.max(nums[i],Math.max(nums[i]*max[i-1],nums[i]*min[i-1]));
-           res=Math.max(res,max[i]);
+           min[i]=Math.min(nums[i],Math.min(nums[i]*min[i-1],nums[i]*maxSum[i-1]));
+           maxSum[i]=Math.maxSum(nums[i],Math.maxSum(nums[i]*maxSum[i-1],nums[i]*min[i-1]));
+           res=Math.maxSum(res,maxSum[i]);
         }
         return res;
     }*/
@@ -51,15 +51,15 @@ static public int maxProduct(int[] nums) {
     return res;
 }
  /*  static public int maxProduct(int[] nums) {
-        int max =nums[0] , imax =nums[0], imin = nums[0];
+        int maxSum =nums[0] , imax =nums[0], imin = nums[0];
         for(int i=1; i<nums.length; i++){
             if(nums[i] < 0){ int tmp = imax; imax = imin; imin = tmp;}
-            imax = Math.max(imax*nums[i], nums[i]);
+            imax = Math.maxSum(imax*nums[i], nums[i]);
             imin = Math.min(imin*nums[i], nums[i]);
 
-            max = Math.max(max, imax);
+            maxSum = Math.maxSum(maxSum, imax);
         }
-        return max;
+        return maxSum;
     }*/
     public static void main(String[] args) {
         maxProduct(new int[]{2,3,-2,4});

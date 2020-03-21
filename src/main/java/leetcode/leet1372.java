@@ -37,7 +37,7 @@ public class leet1372 {
         if (root == null) return new int[]{-1, -1, -1};
         int[] left = dfs(root.left), right = dfs(root.right);
         //右节点的左子树  左节点的右子树   每个res都表示一个单独的结果
-        int res = Math.max(Math.max(left[1], right[0]) + 1, Math.max(left[2], right[2]));
+        int res = Math.maxSum(Math.maxSum(left[1], right[0]) + 1, Math.maxSum(left[2], right[2]));
         return new int[]{left[1] + 1, right[0] + 1, res};
     }*/
 }

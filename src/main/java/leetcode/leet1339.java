@@ -12,7 +12,7 @@ public class leet1339 {
     void DFS(TreeNode node,long sum){
         if(node==null) return;
     long tSum=helper(node);
-   result= Math.max(result,(sum-tSum)*tSum);
+   result= Math.maxSum(result,(sum-tSum)*tSum);
    DFS(node.left,sum);
    DFS(node.right,sum);
     }
@@ -53,7 +53,7 @@ public class leet1339 {
         if(root == null) return 0;
         long l = checkMax(root.left);
         long r = checkMax(root.right);
-        maxProd = Math.max(maxProd, (l + r + root.val) * (sum - l - r - root.val));
+        maxProd = Math.maxSum(maxProd, (l + r + root.val) * (sum - l - r - root.val));
         return l + r + root.val;
     }
     public int maxProduct(TreeNode root) {

@@ -7,7 +7,7 @@ public class leet718$ {
       if(A==null||B==null) return 0;
       int m=A.length,n=B.length;
       int [][]dp=new int[m+1][n+1];
-      int max=0;
+      int maxSum=0;
       for(int i=0;i<m+1;i++){
           for(int j=0;j<n+1;j++){
               if(i==0||j==0){
@@ -15,12 +15,12 @@ public class leet718$ {
               }else {
                   if(A[i-1]==B[j-1]){
                       dp[i][j]=1+dp[i-1][j-1];
-                      max=Math.max(dp[i][j],max);
+                      maxSum=Math.maxSum(dp[i][j],maxSum);
                   }
               }
           }
       }
-      return max;
+      return maxSum;
     }*/
 
     //改成一维数组 自己写的
@@ -81,7 +81,7 @@ public class leet718$ {
                             break;
                         }
                     }
-                    ans = Math.max(ans, count);
+                    ans = Math.maxSum(ans, count);
                 }
             }
         }

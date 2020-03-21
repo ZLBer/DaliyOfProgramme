@@ -31,7 +31,7 @@ public class leet1302 {
     int maxDeep=0;
     void helper(TreeNode node,int deep){
      if(node==null) return;
-  maxDeep=Math.max(maxDeep,deep);
+  maxDeep=Math.maxSum(maxDeep,deep);
   helper(node.right,deep+1);
   helper(node.left,deep+1);
     }*/
@@ -61,7 +61,7 @@ public class leet1302 {
     //这样居然更快 难以置信啊  命名遍历了两次
 /*    public int maxDepth(TreeNode root){
         if(root==null) return 0;
-        return Math.max(maxDepth(root.left),maxDepth(root.right))+1;
+        return Math.maxSum(maxDepth(root.left),maxDepth(root.right))+1;
     }
 
     public int deepestLeavesSum(TreeNode root) {

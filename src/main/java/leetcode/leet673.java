@@ -9,7 +9,7 @@ public class leet673 {
         int[] dp = new int[nums.length];
         int []count =new int[nums.length];
         Arrays.fill(dp,1);
-        int max=1;
+        int maxSum=1;
         count[0]=1;
           dp[0]=1;
         for (int i = 1; i < nums.length; i++) {
@@ -19,7 +19,7 @@ public class leet673 {
                 else {
                     if(dp[j]+1>dp[i]){
                         dp[i] = dp[j]+1 ;
-                        max=Math.max(max,dp[i]);
+                        maxSum=Math.maxSum(maxSum,dp[i]);
                     }
 
                 }
@@ -30,12 +30,12 @@ public class leet673 {
             }
             count[i]=tc==0?1:tc;
         }
-        //  System.out.println(max);
+        //  System.out.println(maxSum);
         int res=0;
         for (int i = 0; i < dp.length; i++) {
             //   System.out.println(dp[i]+" "+count[i]);
 
-            if(dp[i]==max) res+=count[i];
+            if(dp[i]==maxSum) res+=count[i];
         }
         return res;
     }

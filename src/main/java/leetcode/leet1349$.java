@@ -13,11 +13,11 @@ public class leet1349$ {
      }
      int res=0;
      //没有座位继续下一个
-     res=Math.max(res, dfs(seats,x,y+1));
+     res=Math.maxSum(res, dfs(seats,x,y+1));
      //有座位 判断
         if(seats[x][y]=='.'&&check(seats,x,y)) {
             seats[x][y]='P';
-            res=Math.max(res,dfs(seats,x,y+1)+1);
+            res=Math.maxSum(res,dfs(seats,x,y+1)+1);
             seats[x][y]='.';
         }
         return res;
@@ -43,7 +43,7 @@ public class leet1349$ {
                 int res = 0;
                 for(int curMask = 0; curMask < (1 << m); curMask++){
                     if(isValid(curMask, preMask, seats, i)){
-                        res = Math.max(res, Integer.bitCount(curMask) + dp[i + 1][curMask]);
+                        res = Math.maxSum(res, Integer.bitCount(curMask) + dp[i + 1][curMask]);
                     }
                 }
                 dp[i][preMask] = res;
