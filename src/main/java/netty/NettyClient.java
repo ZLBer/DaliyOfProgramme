@@ -4,10 +4,8 @@ import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
-
-import java.util.Date;
+import netty.netty_encoder_decoder.ByteToIntegerDecoder;
+import netty.netty_encoder_decoder.IntegerToByteEncoder;
 
 public class NettyClient {
     public static void main(String[] args) throws InterruptedException {
@@ -20,9 +18,10 @@ public class NettyClient {
                     @Override
                     protected void initChannel(Channel ch) {
                         System.out.println("channel id :"+ch.id()+"  "+System.currentTimeMillis());
-                        ch.pipeline().addLast(new StringEncoder());
-                        ch.pipeline().addLast(new StringDecoder());
-
+                        //ch.pipeline().addLast(new StringEncoder());
+                        //ch.pipeline().addLast(new StringDecoder());
+                        ch.pipeline().addLast(new ByteToIntegerDecoder());
+                          ch.pipeline().addLast(new IntegerToByteEncoder());
                        // ch.pipeline().addLast(new LoggingHandler(LogLevel.INFO));
                         ch.pipeline().addLast(new SimpleChannelInboundHandler<String>() {
                             @Override
@@ -42,8 +41,11 @@ public class NettyClient {
 
         Channel channel = bootstrap.connect("127.0.0.1", 8000).channel();
      while (true){
-            channel.writeAndFlush(new Date() + ": hello world!");
+          //  channel.writeAndFlush(new Date() + ": hello world!");
+         channel.writeAndFlush(12);
             Thread.sleep(2000);
             }
     }
+
+
 }

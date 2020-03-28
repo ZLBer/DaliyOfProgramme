@@ -31,7 +31,6 @@ public class socket {
         pw.write("欢迎您！");
         pw.flush();
 
-
 //5、关闭资源
         pw.close();
         os.close();
