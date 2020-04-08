@@ -1,9 +1,9 @@
-package leetcode.Array;
+package leetcode;
 
 /**
  * Created by libin on 2017/10/10.
  */
-public class Max_Area_of_Island {
+public class leet695 {
     public int maxAreaOfIsland(int[][] grid) {
         int  maxArea=0;
      int [][]selected=new int[grid.length][grid[0].length];

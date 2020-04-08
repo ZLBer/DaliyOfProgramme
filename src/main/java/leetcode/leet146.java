@@ -4,7 +4,7 @@ package leetcode;
 import java.util.HashMap;
 import java.util.Map;
 
-public class leeet146 {
+public class leet146 {
 
     //双向链表解决
     class Node{
