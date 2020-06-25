@@ -26,7 +26,7 @@ public class leet572 {
 //
 //    }
     // 优化剪枝 19ms
-public boolean isSubtree(TreeNode s, TreeNode t) {
+/*public boolean isSubtree(TreeNode s, TreeNode t) {
     inorder(s,t);
     return flag;
 }
@@ -44,7 +44,21 @@ public boolean isSubtree(TreeNode s, TreeNode t) {
         if(s==null||t==null) return false;
         return s.val==t.val&&search(s.left,t.left)&& search(s.right,t.right);
 
+    }*/
+    public boolean isSubtree(TreeNode s, TreeNode t) {
+        if(s==null) return false;
+       if(helper(s,t)) return true;
+
+       return  isSubtree(s.left,t)||isSubtree(s.right,t);
     }
 
+    boolean helper(TreeNode s,TreeNode t){
+    if(s==null&&t==null) return true;
+    if(s==null||t==null||s.val!=t.val) return false;
+   boolean l=helper(s.left,t.left);
+   boolean r=helper(s.right,t.right);
+
+   return l&r;
+}
 
 }

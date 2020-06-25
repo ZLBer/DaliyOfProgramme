@@ -54,7 +54,7 @@ public class leet114 {
 
 
     //用while寻找上一个节点，然后把右子树拆过去
-    public void flatten(TreeNode root) {
+/*    public void flatten(TreeNode root) {
         TreeNode cur = root;
         while (cur != null) {
             if (cur.left != null) {
@@ -71,5 +71,38 @@ public class leet114 {
             //只需要进入左子树
             cur = cur.right;
         }
+    }*/
+
+
+
+   //2020/06/18
+    public void flatten(TreeNode root) {
+    helper(root);
     }
+
+   TreeNode[]helper(TreeNode node){
+      if(node==null) return null;
+     if(node.left==null&&node.right==null) return new TreeNode[]{node,node};
+
+     TreeNode[]left=helper(node.left);
+     TreeNode[]right=helper(node.right);
+
+     if(left==null){
+        node.left=null;
+        node.right=right[0];
+        return new TreeNode[]{node,right[1]};
+     }else if(right==null){
+         node.left=null;
+         node.right=left[0];
+         return new  TreeNode[]{node,left[1]};
+     }else {//都不为空
+         node.left=null;
+         node.right=left[0];
+         left[1].left=null;
+         left[1].right=right[0];
+         return new TreeNode[]{node,right[1]};
+     }
+
+
+   }
 }
