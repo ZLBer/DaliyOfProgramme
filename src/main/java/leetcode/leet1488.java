@@ -13,7 +13,7 @@ public class leet1488 {
        take.add(i);
           }else {
          res[i]=-1;
-        if(!full.colentainsKey(rains[i])){
+        if(!full.containsKey(rains[i])){
             full.put(rains[i],i);
         }else {
             //if(take.isEmpty()) return new int[]{};
