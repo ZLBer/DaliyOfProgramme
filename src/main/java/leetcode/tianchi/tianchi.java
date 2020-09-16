@@ -87,12 +87,7 @@ public class tianchi {
         return two;
     }
 
-    public static void main(String[] args) {
-      /*  getSecondDiameter(new int[][]{
-                {0,1,4},{0,2,7},{1,3,1}
-        });*/
-        painttheCeiling(2,3,3,3,2,15);
-    }
+
 /*    void bfs(boolean[]visited,int index,Map<Integer, List<int[]>> map){
     Queue<Integer> queue=new LinkedList<>();
     queue.add(index);
@@ -129,6 +124,32 @@ public class tianchi {
             }
         }
         return res;
+    }
+
+
+//字符串复制
+  static   int answer(String s){
+    int []dp=new int[s.length()+1];
+    dp[0]=0;
+        for (int i = 0; i < s.length(); i++) {
+          dp[i+1]=dp[i]+1;//可以添加一个字符生成当前
+
+
+            for(int j=i-1;j>0;j--){
+             int length=i-j+1;
+           if(j-length<0) break;
+          String a=s.substring(j-length,j);
+          String b=s.substring(j,i+1);
+         if(a.equals(b)){
+            dp[i+1]=Math.min(dp[i+1],j+1);
+         }
+         }
+        }
+ return dp[s.length()];
+    }
+
+    public static void main(String[] args) {
+      answer("acdeffffff");
     }
 
 }
