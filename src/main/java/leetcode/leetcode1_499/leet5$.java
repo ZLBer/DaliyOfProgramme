@@ -18,7 +18,7 @@ public class leet5$ {
     }*/
 
     //直接法
-   public String longestPalindrome(String s) {
+/*   public String longestPalindrome(String s) {
         int len = s.length();
         if (len < 2)
             return s;
@@ -39,7 +39,7 @@ public class leet5$ {
       max=j-i-1;
       start=i+1;
   }
-    }
+    }*/
 
 
 
@@ -68,4 +68,44 @@ public class leet5$ {
         }
         return true;
     }*/
+
+
+
+
+
+   //2020/10/9 自己写的dp
+    public String longestPalindrome(String s) {
+        boolean [][]dp=new  boolean[s.length()][s.length()];
+        int res=0;
+        int []r=new int[2];
+        for(int i=0;i<s.length();i++){
+            for(int j=0;j<s.length()-i;j++){
+                int k=j+i;
+
+                if(i==0){
+                    dp[j][k]=true;
+                }else if(i==1){
+                    if(s.charAt(k)==s.charAt(k-1)){
+                        dp[j][k]=true;
+                    }
+                }else{
+                    if(s.charAt(k)==s.charAt(j)){
+                        dp[j][k]=dp[j+1][k-1];
+                    }
+                }
+
+                if(dp[j][k]){
+                    r=new int[]{j,k+1};
+                }
+            }
+        }
+
+ /*       for (int i = 0; i < dp.length; i++) {
+            for (int j = 0; j < dp[0].length; j++) {
+                System.out.print(dp[i][j]+" ");
+            }
+            System.out.println();
+        }*/
+        return s.substring(r[0],r[1]);
+    }
 }

@@ -4,7 +4,65 @@ package leetcode.leetcode1_499;
  * Created by libin on 2019/3/3.
  */
 public class leet52 {
-    int N=0;
+
+
+    //2020.10.17
+
+  /*  public int totalNQueens(int n) {
+ return helper(0,n,new int[n]);
+    }
+
+    int helper(int col, int n, int[] arr) {
+        if (col >= n) return 1;
+
+        int sum = 0;
+        for (int row = 0; row < n; row++) {
+            arr[col]=row;
+            if(check(arr,row,col)) sum+=helper(col+1,n,arr);
+        }
+     return sum;
+    }
+   boolean check(int []arr,int row,int col) {
+       for (int i = 0; i <col; i++) {
+          if(arr[i]==row||Math.abs(arr[i]-row)==Math.abs(i-col)) return false;
+       }
+       return true;
+   }*/
+  //2020.10.17
+   //位运算
+    public int totalNQueens(int n) {
+        return solve(n, 0, 0, 0, 0);
+    }
+
+    public int solve(int n, int row, int columns, int diagonals1, int diagonals2) {
+        if (row == n) {
+            return 1;
+        } else {
+            int count = 0;
+            //(1 << n) - 1) &是为了去掉n之前的1
+            int availablePositions = ((1 << n) - 1) & (~(columns | diagonals1 | diagonals2));
+            while (availablePositions != 0) {
+                //取最低位的1
+                int position = availablePositions & (-availablePositions);
+                //将最低位置的1置0
+                availablePositions = availablePositions & (availablePositions - 1);
+                count += solve(n, row + 1, columns | position, (diagonals1 | position) << 1, (diagonals2 | position) >> 1);
+            }
+            return count;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+  /*  int N=0;
   int sum=0;
     public int totalNQueens(int n) {
         int []x=new int[n];
@@ -40,7 +98,7 @@ public class leet52 {
       leet52 l=new leet52();
         System.out.println(l.totalNQueens(64));
     }
-
+*/
 /*
 
     *//**

@@ -6,6 +6,39 @@ import java.util.*;
  * Created by libin on 2019/3/6.
  */
 public class leet47$ {
+
+
+
+
+    //2020/9/18
+   //剪枝规律很重要  而这个规律不好找
+/*    List<List<Integer>> res=new ArrayList<>();
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        boolean []used=new boolean[nums.length];
+        Arrays.sort(nums);
+        helper(0,nums,used,new ArrayList<>());
+        return res;
+    }
+
+    void helper(int index,int []nums,boolean []used,List<Integer>list){
+        if(index>=nums.length){
+            res.add(new ArrayList<>(list));
+        }
+
+        for(int i=0;i<nums.length;i++){
+            if(used[i]||(i>0&&nums[i]==nums[i-1]&&used[i-1])) continue;
+            used[i]=true;
+            list.add(nums[i]);
+            helper(index+1,nums,used,list);
+            used[i]=false;
+            list.remove(list.size()-1);
+        }
+    }*/
+
+
+
+
+
     /*
 Consider the following example:
 i= 0, 1, 2, 3, 4
@@ -38,4 +71,8 @@ However, not that used[0] could be true, and that can happen for a permutations 
             }
         }
     }
+
+
+
+
 }

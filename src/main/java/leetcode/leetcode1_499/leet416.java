@@ -26,7 +26,7 @@ public class leet416 {
     */
     //dp  动态规划还是不简单
     //
-  static   public boolean canPartition(int[] nums) {
+/*  static   public boolean canPartition(int[] nums) {
 
         int sum=0;
         for(int a:nums ){
@@ -53,12 +53,87 @@ public class leet416 {
             }
         }
         return dp[nums.length][sum];
-    }
+    }*/
 
 
 
-    public static void main(String[] args) {
-        System.out.println(canPartition(new int[]{100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,}));
-    }
+
+
+
+
+
+
+
+
+
+
+  //MLE
+/*    public boolean canPartition(int[] nums) {
+     int sum=0;
+        for (int num : nums) {
+            sum+=num;
+        }
+      int des=sum/2;
+        if(des*2!=sum) return false;
+
+       List<Integer> list=new ArrayList<>();
+
+        for (int i = 0; i < nums.length; i++) {
+             List<Integer> temp=new ArrayList<>();
+            for (Integer integer : list) {
+                temp.add(integer);
+                temp.add(integer+nums[i]);
+            }
+           temp.add(nums[i]);
+            list=temp;
+        }
+        for (Integer integer : list) {
+            if(integer==des) return true;
+        }
+        return false;
+
+    }*/
+  public boolean canPartition(int[] nums) {
+      int sum=0;
+      for (int num : nums) {
+          sum+=num;
+      }
+      int des=sum/2;
+      if(des*2!=sum) return false;
+
+     boolean[][]dp=new boolean[nums.length+1][des+1];
+
+      for (int i = 0; i < dp.length; i++) {
+          dp[i][0]=true;
+      }
+     
+      for (int i = 1; i < nums.length; i++) {
+          int num = nums[i-1];
+          for (int j = 1; j < dp[0].length; j++) {
+            dp[i][j]=dp[i-1][j];
+            int frm=j-num;
+            if(frm<0) continue;
+           if(dp[i-1][frm]==true) {
+               dp[i][j]=true;
+           }
+
+          }
+          if(dp[i][dp[0].length]) return true;
+      }
+
+ /*     for (int i = 0; i < dp.length; i++) {
+          for (int j = 0; j < dp[0].length; j++) {
+              System.out.print(dp[i][j]+" ");
+          }
+          System.out.println();
+      } 
+*/
+      return dp[dp.length-1][dp[0].length-1];
+
+  }
+
+
+
+  
 
 }

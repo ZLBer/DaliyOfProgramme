@@ -3,7 +3,7 @@ package leetcode.leetcode1_499;
 import java.util.HashSet;
 import java.util.Set;
 
-public class leet02 {
+public class leet1583 {
     public int unhappyFriends(int n, int[][] preferences, int[][] pairs) {
         Set<Integer> res=new HashSet<>();
 
