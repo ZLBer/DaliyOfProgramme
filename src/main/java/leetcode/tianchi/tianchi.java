@@ -148,6 +148,35 @@ public class tianchi {
  return dp[s.length()];
     }
 
+
+
+    public boolean isAlienSorted(String[] words, String order) {
+      int []letter=new int[26];
+
+      for (int i = 0; i < order.toCharArray().length; i++) {
+         letter[order.charAt(i)-'0']=i;
+        }
+        for (int i = 1; i < words.length; i++) {
+          String pre=words[i-1];
+          String here=words[i];
+          if(check(pre,here,letter)) continue;
+          else  return false;
+        }
+
+        return true;
+    }
+
+    boolean check(String a,String b,int []letter){
+      int length=Math.min(a.length(),b.length());
+      for(int i=0;i<length;i++){
+         int c= letter[a.charAt(i)-'a']-letter[b.charAt(i)-'a'];
+       if(c>0) return false;
+       else if(c<0) return true;
+       else continue;
+      }
+     if(a.length()>b.length()) return false;
+     return true;
+    }
     public static void main(String[] args) {
       answer("acdeffffff");
     }

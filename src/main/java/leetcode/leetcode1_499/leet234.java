@@ -40,6 +40,51 @@ public class leet234 {
           }
           return  pre;
     }
+
+   //2020/10/23
+    //O(n) O(1)
+/*
+    public boolean isPalindrome(ListNode head) {
+        ListNode node=head;
+        int count=0;
+        while(node!=null){
+            count++;
+            node=node.next;
+        }
+        ListNode first=null;
+        ListNode second=null;
+
+        ListNode pre=null;
+        int mid=count/2;
+        while(mid-->0){
+            ListNode next=head.next;
+            head.next=pre;
+            pre=head;
+            head=next;
+        }
+
+//  偶数
+        if(count%2==0){
+            first=pre;
+            second=head;
+        }else{
+            first=pre;
+            second=head.next;
+        }
+
+        while(first!=null){
+            if(first.val!=second.val) return false;
+            first=first.next;
+            second=second.next;
+        }
+        return true;
+
+
+
+    }
+*/
+
+
 //    public boolean isPalindrome(ListNode head) {
 //        ListNode fast = head, slow = head;
 //        while (fast != null && fast.next != null) {

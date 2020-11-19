@@ -5,6 +5,30 @@ import java.util.Collections;
 import java.util.List;
 
 public class leet327$ {
+
+    //2020/11/07 勉勉强强能过..
+   /* public int countRangeSum(int[] nums, int lower, int upper) {
+        int res=0;
+        for(int len=0;len<nums.length;len++){
+
+            long sum=0;
+            for(int begin=0;begin+len<nums.length;begin++){
+                if(begin==0){ //初始化
+                    for(int i= begin;i<=begin+len;i++){
+                        sum+=nums[i];
+                    }
+                }else {
+                    sum-=nums[begin-1];
+                    sum+=nums[begin+len];
+                }
+                System.out.println(sum);
+                if(sum>=lower&&sum<=upper){
+                    res++;
+                }
+            }
+        }
+        return res;
+    }*/
     //TreeMap+数学
     /*public int countRangeSum(int[] nums, int lower, int upper) {
         TreeMap<Long,Integer> treeMap=new TreeMap<>();
