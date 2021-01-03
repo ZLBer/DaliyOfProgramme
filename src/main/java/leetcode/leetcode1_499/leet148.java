@@ -8,6 +8,7 @@ public class leet148 {
 
 
     //归并排序
+/*
   static   public ListNode sortList(ListNode head) {
         if(head==null||head.next==null) return head;
       ListNode fast=head,slow=head;
@@ -49,6 +50,7 @@ public class leet148 {
 res=res.next;
         return res;
     }
+*/
 
    //改进版的归并排序  从底层直接往上遍历
  /*   public ListNode sortList(ListNode head) {
@@ -115,11 +117,49 @@ res=res.next;
 
 
 
+    public ListNode sortList(ListNode head) {
+
+   if(head==null||head.next==null) return head;
+     ListNode fast=head,slow=head;
+     ListNode pre=head;
+     while (fast!=null&&fast.next!=null){
+         fast=fast.next.next;
+         pre=slow;
+         slow=slow.next;
+     }
+
+     pre.next=null;
+
+
+     ListNode left=sortList(head);
+
+     ListNode right=sortList(slow);
+
+     ListNode newHead=new ListNode(-1);
+     ListNode temp=newHead;
+     while (left!=null&&right!=null){
+       if(left.val<=right.val){
+           temp.next=left;
+            left=left.next;
+       }else {
+           temp.next=right;
+           right=right.next;
+       }
+       temp=temp.next;
+
+     }
+
+     temp.next=(left==null?right:left);
+
+     return newHead.next;
+
+    }
+
     public static void main(String[] args) {
          ListNode head=new ListNode(4);
          head.next=new ListNode(2);
          head.next.next=new ListNode(1);
          head.next.next.next=new ListNode(3);
-         sortList(head);
+        // sortList(head);
     }
 }

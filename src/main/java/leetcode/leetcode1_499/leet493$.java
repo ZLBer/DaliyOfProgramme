@@ -1,5 +1,9 @@
 package leetcode.leetcode1_499;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeSet;
+
 public class leet493$ {
     //基本思路是这样的  二叉搜索树count来记录比这个val大或等于的数字数目
     //虽然TLE 但是很有参考价值
@@ -229,7 +233,7 @@ public class leet493$ {
 
 
     //自己尝试写一下归并解法
-    public int reversePairs(int[] nums) {
+/*    public int reversePairs(int[] nums) {
         return   mergeSort(nums,0,nums.length-1);
     }
     int mergeSort(int []nums,int left,int right){
@@ -254,11 +258,142 @@ public class leet493$ {
             nums[c+left]=copy[c];
         }
         return res;
-    }
+    }*/
     public static void main(String[] args) {
-        int []arr=new int[]{1,2,2,3,3,3};
-
+        int []arr=new int[]{5,4,3,2,1};
+         leet493$ l=new leet493$();
+         l.reversePairs(arr);
     }
 
 
+
+
+
+
+
+
+    // 2020/11/28
+   /* public int reversePairs(int[] nums) {
+
+        helper(0,nums.length-1,nums);
+        return res;
+    }
+
+
+   int res=0;
+    void helper(int left,int right,int []nums){
+        System.out.println(left+" "+right);
+      if(left>=right)return;
+
+     int mid=(left+right)/2;
+
+     int []temp=new int[right-left+1];
+     int index=0;
+
+     helper(left,mid,nums);
+     helper(mid+1,right,nums);
+     int i=left,j=mid+1,p=mid+1;
+     while (i<=mid&&j<=right){
+
+         while (p<=right&&nums[i]>2L*nums[p]) p++;
+       if(nums[i]<nums[j]){
+           res+=(p-mid-1);
+         temp[index++]=nums[i];
+         i++;
+       }else {
+           temp[index++]=nums[j];
+           j++;
+       }
+     }
+
+     while (i<=mid){
+         while (p<=right&&nums[i]>2*nums[p]) p++;
+
+         res+=(p-mid-1);
+      temp[index++]=nums[i++];
+     }
+
+     while (j<=right){
+        temp[index++]=nums[j++];
+     }
+
+    for(i=0;i<temp.length;i++){
+        nums[left+i]=temp[i];
+    }
+
+    }
+*/
+
+   //  2020/11/28
+    public int reversePairs(int[] nums) {
+        TreeSet<Long> set=new TreeSet<>();
+        for (int num : nums) {
+            set.add((long)num);
+            set.add((long)num*2L);
+        }
+        Map<Long,Integer> map=new HashMap<>();
+        int index=1;
+        for (Long integer : set) {
+            map.put(integer,index++);
+        }
+
+       FenwickTree fenwickTree=new FenwickTree(index);
+
+        int res=0;
+        for (int i=0;i<nums.length;i++) {
+          int left=map.get(nums[i]*2L),right=index;
+          res+=fenwickTree.query(right)-fenwickTree.query(left);
+        fenwickTree.update(map.get(nums[i]),1);
+        }
+
+       return res;
+        
+    }
+    //树状数组板子
+    public class FenwickTree {
+
+        /**
+         * 预处理数组
+         */
+        private int[] tree;
+        private int len;
+
+        public FenwickTree(int n) {
+            this.len = n;
+            tree = new int[n + 1];
+        }
+
+        /**
+         * 单点更新
+         *
+         * @param i     原始数组索引 i
+         * @param delta 变化值 = 更新以后的值 - 原始值
+         */
+        public void update(int i, int delta) {
+            // 从下到上更新，注意，预处理数组，比原始数组的 len 大 1，故 预处理索引的最大值为 len
+            while (i <= len) {
+                tree[i] += delta;
+                i += lowbit(i);
+            }
+        }
+
+        /**
+         * 查询前缀和
+         *
+         * @param i 前缀的最大索引，即查询区间 [0, i] 的所有元素之和
+         */
+        public int query(int i) {
+            // 从右到左查询
+            int sum = 0;
+            while (i > 0) {
+                sum += tree[i];
+                i -= lowbit(i);
+            }
+            return sum;
+        }
+
+        public  int lowbit(int x) {
+            return x & (-x);
+        }
+    }
 }

@@ -60,7 +60,7 @@ public class leet376 {
 
     //dp 也是好巧妙啊
     //两个数组 dowm up 按照情况更新不同的数组
-    public int wiggleMaxLength(int[] nums) {
+/*    public int wiggleMaxLength(int[] nums) {
 
         if( nums.length == 0 ) return 0;
 
@@ -84,6 +84,57 @@ public class leet376 {
         }
 
         return Math.max(down[nums.length-1],up[nums.length-1]);
-    }
+    }*/
 
+   //2020/12/12 应该是可以优化的
+/*    public int wiggleMaxLength(int[] nums) {
+        if(nums.length==1||nums.length==0) return nums.length;
+        int [][]dp=new int[nums.length][2];
+        dp[0][0]=1;dp[0][1]=1;
+        int res=1;
+        //第一行+ 第二行-
+        for (int i = 1; i < nums.length; i++) {
+            dp[i][0]=dp[i][1]=1;
+            for(int j=0;j<i;j++){
+                int dis=nums[i]-nums[j];
+                if(dis>0){
+                    dp[i][0]=Math.max(dp[i][0],dp[j][1]+1);
+                }else if(dis<0){
+                    dp[i][1]=Math.max(dp[i][1],dp[j][0]+1);
+                }
+
+            }
+            res=Math.max(res,Math.max(dp[i][0],dp[i][1]));
+
+        }
+        return res;
+    }*/
+
+     //启动优化
+    public int wiggleMaxLength(int[] nums) {
+        if (nums.length == 1 || nums.length == 0) return nums.length;
+        int[][] dp = new int[nums.length][2];
+        dp[0][0] = 1;
+        dp[0][1] = 1;
+        int res = 1;
+        //第一行+ 第二行-
+        for (int i = 1; i < nums.length; i++) {
+            dp[i][0] = dp[i][1] = 1;
+            int j=i-1;
+
+            int dis = nums[i] - nums[j];
+            if (dis > 0) {
+                dp[i][0] =dp[j][1]+1;
+                dp[i][1]=dp[j][1];
+            } else if (dis < 0) {
+                dp[i][1] = dp[j][0] + 1;
+                dp[i][0]=dp[j][0];
+            }else {  //这里不能漏了 相等直接复制钱一个状态即可
+                dp[i][0] =dp[j][1];
+                dp[i][1]=dp[j][1];
+            }
+
+    }
+        return Math.max(dp[nums.length-1][0], dp[nums.length-1][1]);
+    }
 }

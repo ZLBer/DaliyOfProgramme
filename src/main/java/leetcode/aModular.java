@@ -6,17 +6,17 @@ public class aModular {
 
     //组合数 Cnm   m>n
 
-     long combination(int m, int n) {
-       int k=1;
-       long ans=1;
-       while (k<=n){
-           ans=((m-k+1)*ans)/k;
-           k++;
-       }
-       return ans;
+    // m>=n
+    public int comnination(int m,int n){
+        if(n==0) return 1;
+        long ans = 1;
 
+        //都从小的开始 防止过早溢出
+        for (int x = m-n+1, y = 1; y <=n ; ++x, ++y) {
+            ans = ans * x / y;
+        }
+        return (int) ans;
     }
-
 
       long gcd(long a,long b) {
         while(b!=0)
@@ -36,7 +36,7 @@ public class aModular {
 
 
     public static void main(String[] args) {
-        //求二进制子集
+        //求二进制子集  自己枚举
          int state=13;
         for(int i = state;i>0 ;i = (i-1) & state){
 
@@ -163,6 +163,11 @@ public class aModular {
                 tree[i] += delta;
                 i += lowbit(i);
             }
+        }
+       //区间更新
+        void update(int x, int y, int k) {
+            update(x, k);
+            update(y + 1, -k);
         }
 
         /**

@@ -34,7 +34,7 @@ public class leet62 {
 
 
     //DP很容易就解决了
-    public static int uniquePaths(int m, int n) {
+/*    public static int uniquePaths(int m, int n) {
         int[][] dp = new int[n + 1][m + 1];
         dp[0][1] = 1;
         for (int i = 1; i <= n; i++) {
@@ -43,9 +43,55 @@ public class leet62 {
             }
         }
         return dp[n][m];
+    }*/
+
+
+    //2020/12/9
+/*    public int uniquePaths(int m, int n) {
+        int [][]dp=new int[m][n];
+
+        for(int i=0;i<m;i++){
+            for(int j=0;j<n;j++){
+                if(i==0&&j==0){
+                    dp[0][0]=1;
+                }
+                else if(i==0){
+                    dp[i][j]=dp[i][j-1];
+                }  else if(j==0){
+                    dp[i][j]=dp[i-1][j];
+                }else{
+                    dp[i][j]=dp[i-1][j]+dp[i][j-1];
+                }
+            }
+        }
+        return dp[m-1][n-1];
+    }*/
+
+
+
+   //组合数
+    public int uniquePaths(int m, int n) {
+        return  comnination(m+n-2,n-1);
     }
 
-    public static void main(String[] args) {
-        System.out.println(uniquePaths(23,12));
+
+    // m>=n
+    public int comnination(int m,int n){
+        if(n==0) return 1;
+        long ans = 1;
+
+        for (int x = m-n+1, y = 1; y <=n ; ++x, ++y) {
+            ans = ans * x / y;
+           // System.out.println(x+" "+y+" "+ans);
+        }
+        return (int) ans;
     }
+
+
+
+
+    public static void main(String args[]) {
+
+    }
+
 }

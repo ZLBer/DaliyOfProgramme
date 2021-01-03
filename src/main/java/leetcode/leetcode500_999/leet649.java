@@ -3,7 +3,7 @@ package leetcode.leetcode500_999;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class leet649 {
+public class leet649  {
     //mine 错误的方法 虽然能通过很多用例
  /*   public String predictPartyVictory(String senate) {
        boolean[]dead=new boolean[senate.length()];

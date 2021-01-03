@@ -51,7 +51,7 @@ public class leet188$ {
     }*/
 
   //简洁明了  老外的思维就是
-    public int maxProfit(int k, int[] prices) {
+/*    public int maxProfit(int k, int[] prices) {
         int len = prices.length;
         if (k >= len / 2) return quickSolve(prices);
 
@@ -73,5 +73,35 @@ public class leet188$ {
             // as long as there is a price gap, we gain a profit.
             if (prices[i] > prices[i - 1]) profit += prices[i] - prices[i - 1];
         return profit;
+    }*/
+
+
+    //2020/12/28
+    public int maxProfit(int k, int[] prices) {
+        if(prices.length==0) return 0;
+        int [][][]dp=new int[k+1][2][prices.length];
+
+        dp[0][0][0]=0;
+        dp[0][1][0]=-prices[0];
+        int inf=-(int)1e9;
+        for (int i = 1; i < dp.length; i++) {
+            dp[i][0][0]=dp[i][1][0]=inf;
+        }
+        for (int i = 1; i < prices.length; i++) {
+
+            //k=0要特殊化处理
+            dp[0][1][i]=Math.max(dp[0][1][i-1],-prices[i]);
+
+            for (int j = 1; j <= k; j++) {
+                // if(j-1>i/2) continue;
+                dp[j][0][i]=Math.max(dp[j][0][i-1],dp[j-1][1][i-1]+prices[i]);
+                dp[j][1][i]=Math.max(dp[j][1][i-1],dp[j][0][i-1]-prices[i]);
+            }
+        }
+        int res=0;
+        for (int i = 0; i <= k; i++) {
+            res=Math.max(dp[i][0][prices.length-1],res);
+        }
+        return res;
     }
 }

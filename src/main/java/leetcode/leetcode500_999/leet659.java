@@ -4,6 +4,32 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class leet659 {
+
+    //2020/12/4  mine
+/*       public boolean isPossible(int[] nums) {
+        Map<Integer, PriorityQueue<Integer>> map=new HashMap<>();
+
+        for (int num : nums) {
+            if(!map.containsKey(num)) {
+                PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+                map.put(num, priorityQueue);
+            }
+
+            if(!map.containsKey(num-1) ||(map.containsKey(num-1)&& map.get(num-1).isEmpty())){
+                map.get(num).add(1);
+            }else {
+                int poll = map.get(num-1).poll()+1;
+                map.get(num).add(poll);
+            }
+        }
+        for (Map.Entry<Integer, PriorityQueue<Integer>> integerPriorityQueueEntry : map.entrySet()) {
+            for (Integer integer : integerPriorityQueueEntry.getValue()) {
+                if(integer<3) return false;
+            }
+        }
+        return true;
+    }*/
+
     //仿写
     public boolean isPossible(int[] nums) {
         Map<Integer,Integer> freq=new HashMap<>(),append=new HashMap<>();
